@@ -91,9 +91,10 @@ class Game {
       player.update();
     }
 
-    if(player.distance > 3860){
+    if(player.distance > 3600){
       gameState = 2;
       player.rank = player.rank+1;
+      player.update();
       Player.updatecarsAtEnd(player.rank);
     }
    
@@ -101,7 +102,32 @@ class Game {
   }
 
   end(){
-    console.log("Game Ended");
-    console.log(player.rank)
+    //console.log("Game Ended");
+   // console.log(player.rank)
+  }
+  displayRanks(){
+    background(255);
+    camera.position.x = 0;
+    camera.position.y = 0;
+    console.log("displayRanks")
+    Player.getPlayerInfo();
+    //text(mouseX+","+mouseY,mouseX,mouseY);
+    for(var p in allPlayers){
+      if(allPlayers[p].rank === 1){
+        text("you are 1ST "+allPlayers[p].name,-100,-300)
+        image(first,-100,-500)
+      }
+      else if(allPlayers[p].rank === 2){
+        text("you are 2ND "+allPlayers[p].name,0,-300)
+        image(second,0,-500)
+      }
+      else if(allPlayers[p].rank === 3){
+        text("you are 3RD "+allPlayers[p].name,100,-300)
+        image(third,100,-500)
+      }
+      else{
+        text("Better luck next time "+allPlayers[p].name,0,-10)
+      }
+    }
   }
 }

@@ -11,7 +11,7 @@ var form, player, game;
 var cars, car1, car2, car3, car4;
 
 var track, car1_img, car2_img, car3_img, car4_img;
-
+var first,second,third;
 function preload(){
   track = loadImage("../images/track.jpg");
   car1_img = loadImage("../images/car1.png");
@@ -19,6 +19,9 @@ function preload(){
   car3_img = loadImage("../images/car3.png");
   car4_img = loadImage("../images/car4.png");
   ground = loadImage("../images/ground.png");
+  first = loadImage("../images/tile000.png");
+  second = loadImage("../images/tile001.png");
+  third = loadImage("../images/tile002.png");
 }
 
 function setup(){
@@ -31,6 +34,7 @@ function setup(){
 
 
 function draw(){
+ 
   if(playerCount === 4){
     game.update(1);
   }
@@ -41,4 +45,8 @@ function draw(){
   if(gameState === 2){
     game.end();
   }
+  if (gameState === 2 && player.rank === 4){
+    game.displayRanks();
+  }
+  //text(mouseX+","+mouseY,mouseX,mouseY);
 }
