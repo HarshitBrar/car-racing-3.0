@@ -106,7 +106,7 @@ class Game {
    // console.log(player.rank)
   }
   displayRanks(){
-    background(255);
+    background(bg);
     camera.position.x = 0;
     camera.position.y = 0;
     console.log("displayRanks")
@@ -114,19 +114,20 @@ class Game {
     //text(mouseX+","+mouseY,mouseX,mouseY);
     for(var p in allPlayers){
       if(allPlayers[p].rank === 1){
-        text("you are 1ST "+allPlayers[p].name,-100,-300)
-        image(first,-100,-500)
+        text("you are 1ST "+allPlayers[p].name,-500,-300)
+        image(first,-600,-100)
       }
       else if(allPlayers[p].rank === 2){
-        text("you are 2ND "+allPlayers[p].name,0,-300)
-        image(second,0,-500)
+        text("you are 2ND "+allPlayers[p].name,-200,-300)
+        image(second,-300,-100)
       }
       else if(allPlayers[p].rank === 3){
         text("you are 3RD "+allPlayers[p].name,100,-300)
-        image(third,100,-500)
+        image(third,0,-100)
       }
       else{
-        text("Better luck next time "+allPlayers[p].name,0,-10)
+        text("Better luck next time "+allPlayers[p].name,400,-300)
+        image(fourth,300,-100)
       }
     }
   }
